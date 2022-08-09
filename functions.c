@@ -21,6 +21,8 @@ int print_string(va_list vv)
 	int i = 0, counter = 0;
 	char *x = va_arg(vv, char*);
 
+	if (x == NULL)
+		return (0);
 	while (x[i])
 	{
 		write(1, x + i, 1);
@@ -61,6 +63,8 @@ int print_int(va_list vv)
 	int counter = 0, x = va_arg(vv, int);
 
 	recur(x);
+	if (x == 0)
+		return (1);
 	if (x < 0)
 	{
 		counter++;
