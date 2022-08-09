@@ -1,9 +1,8 @@
 #include "main.h"
+#include <stdio.h>
 void main(void)
 {
-	int l;
-	char *p = "hello";
-	int i = -20;
-	l = _printf("%d", i);
-	_printf("%d\n", l);
+	unsigned int i = 249;
+	int j = 0;
+	_printf("%b\n", i);
 }

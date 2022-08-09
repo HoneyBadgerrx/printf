@@ -21,8 +21,6 @@ int print_string(va_list vv)
 	int i = 0, counter = 0;
 	char *x = va_arg(vv, char*);
 
-	if (x == NULL)
-		return (0);
 	while (x[i])
 	{
 		write(1, x + i, 1);
@@ -63,8 +61,6 @@ int print_int(va_list vv)
 	int counter = 0, x = va_arg(vv, int);
 
 	recur(x);
-	if (x == 0)
-		return (1);
 	if (x < 0)
 	{
 		counter++;
@@ -76,4 +72,44 @@ int print_int(va_list vv)
 		++counter;
 	}
 	return (counter);
+}
+/**
+ * binary - prints unsigned int in binary form
+ * @i: unsigned int
+ * Return: count of number given
+ */
+int binary(int i)
+{
+	int count = 0;
+	char c;
+
+	if (i == 0)
+	{
+		c = '0';
+		write(1, &c, 1);
+		return (0);
+	}
+	if (i == 1)
+	{
+		c = '1';
+		write(1, &c, 1);
+		return (0);
+	}
+	binary(i / 2);
+	if (i % 2 == 0)
+	{
+		c = '0';
+		write(1, &c, 1);
+	}
+	else
+	{
+		c = '1';
+		write(1, &c, 1);
+	}
+	while (i != 0)
+	{
+		i /= 2;
+		++count;
+	}
+	return (count);
 }

@@ -20,5 +20,7 @@ int print_string(va_list vv);
 int print_int(va_list vv);
 int (*get_func(char c))(va_list);
 void recur(int x);
+int binary(int i);
+int print_bin(va_list vv);
 
 #endif /* main_h */

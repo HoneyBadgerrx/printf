@@ -73,3 +73,43 @@ int print_int(va_list vv)
 	}
 	return (counter);
 }
+/**
+ * binary - prints unsigned int in binary form
+ * @i: unsigned int
+ * Return: count of number given
+ */
+int binary(int i)
+{
+	int count = 0;
+	char c;
+
+	if (i == 0)
+	{
+		c = '0';
+		write(1, &c, 1);
+		return (0);
+	}
+	if (i == 1)
+	{
+		c = '1';
+		write(1, &c, 1);
+		return (0);
+	}
+	binary(i / 2);
+	if (i % 2 == 0)
+	{
+		c = '0';
+		write(1, &c, 1);
+	}
+	else
+	{
+		c = '1';
+		write(1, &c, 1);
+	}
+	while (i != 0)
+	{
+		i /= 2;
+		++count;
+	}
+	return (count);
+}
