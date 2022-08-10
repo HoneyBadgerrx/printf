@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 		return (0);
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1] != '%')
+		if (format[i] == '%' && format[i + 1] != '%' && format[i + 1])
 		{
 			f = get_func(format[i + 1]);
 			if (f != NULL)
