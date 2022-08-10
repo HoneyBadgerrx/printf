@@ -56,6 +56,7 @@ int print_int(va_list vv)
 {
 	int counter = 0, i = va_arg(vv, int);
 	unsigned int x;
+	char c;
 
 	if (i < 0)
 	{
