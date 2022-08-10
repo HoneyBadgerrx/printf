@@ -22,7 +22,7 @@ int print_string(va_list vv)
 	char *x = va_arg(vv, char*);
 
 	if (x == NULL)
-		return (_printf("NULL"));
+		return (_printf("(null)"));
 	while (x[i])
 	{
 		write(1, x + i, 1);
