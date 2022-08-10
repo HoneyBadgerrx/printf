@@ -6,12 +6,17 @@
  */
 int print_bin(va_list vv)
 {
-	char c = '0';
+	char o = '0', l = '1';
 	unsigned int i = va_arg(vv, unsigned int);
 
 	if (i == 0)
 	{
-		write(1, &c, 1);
+		write(1, &o, 1);
+		return (1);
+	}
+	if (i == 1)
+	{
+		write(1, &l, 1);
 		return (1);
 	}
 	return (binary(i));
