@@ -65,6 +65,12 @@ int print_int(va_list vv)
 		write(1, &c, 1);
 		++counter;
 	}
+	if (i == 0)
+	{
+		c = '0';
+		write(1, &c, 1);
+		return (1);
+	}
 	x = i;
 	recur(x);
 	while (x != 0)
