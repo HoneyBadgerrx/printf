@@ -21,6 +21,8 @@ int print_string(va_list vv)
 	int i = 0, counter = 0;
 	char *x = va_arg(vv, char*);
 
+	if (x == NULL)
+		return (_printf("NULL"));
 	while (x[i])
 	{
 		write(1, x + i, 1);
@@ -34,16 +36,10 @@ int print_string(va_list vv)
  * @x: int
  * Return: void
  */
-void recur(int x)
+void recur(unsigned int x)
 {
 	char c;
 
-	if (x < 0)
-	{
-		x = x * -1;
-		c = '-';
-		write(1, &c, 1);
-	}
 	if (x == 0)
 		return;
 	if (x)
@@ -58,14 +54,18 @@ void recur(int x)
  */
 int print_int(va_list vv)
 {
-	int counter = 0, x = va_arg(vv, int);
+	int counter = 0, i = va_arg(vv, int);
+	unsigned int x;
 
-	recur(x);
-	if (x < 0)
+	if (i < 0)
 	{
-		counter++;
-		x = x * -1;
+		i = i * -1;
+		c = '-';
+		write(1, &c, 1);
+		++counter;
 	}
+	x = i;
+	recur(x);
 	while (x != 0)
 	{
 		x = x / 10;
@@ -78,7 +78,7 @@ int print_int(va_list vv)
  * @i: unsigned int
  * Return: count of number given
  */
-int binary(int i)
+int binary(unsigned int i)
 {
 	int count = 0;
 	char c;
